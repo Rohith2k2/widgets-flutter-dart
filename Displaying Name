@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Android App Development April Minor Project",
+      home: Name1(),
+    );
+  }
+
+}
+
+class Name1 extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return Name2();
+  }
+
+}
+
+class Name2 extends State<Name1>{
+  TextEditingController editingController = TextEditingController();
+  var text;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar : AppBar(title : const Text("Android App Development April Minor Project"),),
+        body : Container(
+            child : Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children : <Widget>[
+                  TextField(
+                    controller: editingController,
+                    decoration : const InputDecoration(
+                        hintText : "Display your Name"
+                    ),
+                  ),
+
+                  ElevatedButton(
+                    child: Text("Click Here!"),
+                    onPressed : (){
+                      setState((){
+                        text = editingController.text;
+                      });
+
+                    },
+
+                  ),
+                  Text("Welcome $text")
+                ]
+            )
+        )
+    );
+  }}
